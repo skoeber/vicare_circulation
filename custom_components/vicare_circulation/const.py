@@ -10,6 +10,8 @@ NAME: Final = "ViCare Circulation"
 
 PLATFORMS: Final = [Platform.SELECT, Platform.SENSOR, Platform.BINARY_SENSOR]
 UPDATE_INTERVAL: Final = timedelta(minutes=5)
+SCHEDULE_VERIFY_DELAYS: Final = (0, 1, 2, 4)
+SCHEDULE_FOLLOW_UP_DELAY: Final = 15
 
 API_BASE_URL: Final = "https://api.viessmann-climatesolutions.com/iot/v2"
 AUTHORIZE_URL: Final = "https://iam.viessmann-climatesolutions.com/idp/v3/authorize"

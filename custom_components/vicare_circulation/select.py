@@ -75,11 +75,20 @@ class CirculationScheduleSelect(ViCareCirculationEntity, SelectEntity):
                 translation_placeholders={"preset": option},
             )
         try:
-            await self.coordinator.async_write_schedule(deepcopy(PRESETS[option]))
+            confirmed = await self.coordinator.async_write_schedule(
+                deepcopy(PRESETS[option])
+            )
         except (ViessmannApiError, ConfigEntryAuthFailed) as err:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
                 translation_key="schedule_write_failed",
                 translation_placeholders={"preset": option},
             ) from err
-        _LOGGER.info("Activated circulation schedule preset %s", option)
+        if confirmed:
+            _LOGGER.info("Activated circulation schedule preset %s", option)
+        else:
+            _LOGGER.warning(
+                "Viessmann accepted circulation schedule preset %s but has not "
+                "published it through the read endpoint yet",
+                option,
+            )
