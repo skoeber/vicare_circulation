@@ -1,0 +1,12 @@
+/.DS_Store
+
+# Local API captures may contain installation and device identifiers.
+/features.json
+/standard.json
+/ganztag.json
+/aus.json
+
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc

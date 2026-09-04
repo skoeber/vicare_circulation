@@ -1,0 +1,12 @@
+{
+  "domain": "vicare_circulation",
+  "name": "ViCare Circulation",
+  "codeowners": [],
+  "config_flow": true,
+  "dependencies": ["application_credentials"],
+  "documentation": "https://github.com/skoeber/ha-vicare-circulation",
+  "integration_type": "device",
+  "iot_class": "cloud_polling",
+  "requirements": [],
+  "version": "1.0.0"
+}

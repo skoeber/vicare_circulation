@@ -1,0 +1,82 @@
+{
+  "title": "ViCare Zirkulation",
+  "application_credentials": {
+    "description": "Erstelle einen Client im [Viessmann Developer Portal]({more_info_url}). Hinterlege `{redirect_url}` als Redirect URI. Das Client Secret wird ignoriert; gib einen beliebigen nicht leeren Wert ein."
+  },
+  "config": {
+    "abort": {
+      "already_configured": "Dieses Viessmann-Heizgerät ist bereits konfiguriert.",
+      "authentication_error": "Viessmann hat die Authentifizierung abgelehnt. Starte die Einrichtung erneut.",
+      "cannot_connect": "Die Viessmann-API ist nicht erreichbar.",
+      "invalid_api_data": "Die Viessmann-API hat ungültige Daten zurückgegeben.",
+      "no_gateways": "Es wurde kein Viessmann-Gateway gefunden.",
+      "no_heating_devices": "Hinter diesem Gateway wurde kein Heizgerät gefunden.",
+      "no_installations": "Es wurde keine Viessmann-Installation gefunden.",
+      "reconfigure_successful": "Das Ziel-Heizgerät wurde aktualisiert.",
+      "reauth_successful": "Die erneute Authentifizierung war erfolgreich.",
+      "schedule_not_supported": "Der Zeitplan der Warmwasser-Zirkulation ist nicht verfügbar oder kann nicht geändert werden.",
+      "unknown": "Ein unerwarteter Fehler ist aufgetreten."
+    },
+    "create_entry": {
+      "default": "Erfolgreich bei Viessmann authentifiziert."
+    },
+    "step": {
+      "installation": {
+        "title": "Installation auswählen",
+        "description": "Wähle die Viessmann-Installation mit der Wärmepumpe aus.",
+        "data": {
+          "installation_id": "Installation"
+        }
+      },
+      "gateway": {
+        "title": "Gateway auswählen",
+        "description": "Wähle das mit der Wärmepumpe verbundene Vitoconnect-Gateway aus.",
+        "data": {
+          "gateway_serial": "Gateway"
+        }
+      },
+      "device": {
+        "title": "Heizgerät auswählen",
+        "description": "Wähle das Heizgerät aus, dessen Zirkulationszeitplan gesteuert werden soll.",
+        "data": {
+          "device_id": "Heizgerät"
+        }
+      },
+      "pick_implementation": {
+        "title": "Zugangsdaten auswählen"
+      },
+      "reauth_confirm": {
+        "title": "ViCare Zirkulation erneut authentifizieren",
+        "description": "Das Viessmann-Konto muss erneut authentifiziert werden."
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "pump_active": {
+        "name": "Warmwasser-Zirkulation aktiv"
+      }
+    },
+    "select": {
+      "schedule": {
+        "name": "Warmwasser-Zirkulation Zeitplan"
+      }
+    },
+    "sensor": {
+      "schedule_status": {
+        "name": "Warmwasser-Zirkulation Zeitplanstatus"
+      },
+      "api_schedule": {
+        "name": "Warmwasser-Zirkulation API-Plan"
+      }
+    }
+  },
+  "exceptions": {
+    "schedule_write_failed": {
+      "message": "Der Zirkulationszeitplan {preset} konnte nicht aktiviert werden."
+    },
+    "unknown_preset": {
+      "message": "Unbekannter Zirkulationszeitplan: {preset}."
+    }
+  }
+}

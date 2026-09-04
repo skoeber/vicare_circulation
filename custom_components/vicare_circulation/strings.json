@@ -1,0 +1,82 @@
+{
+  "title": "ViCare Circulation",
+  "application_credentials": {
+    "description": "Create a client in the [Viessmann Developer Portal]({more_info_url}). Add `{redirect_url}` as redirect URI. The client secret is ignored; enter any non-empty value."
+  },
+  "config": {
+    "abort": {
+      "already_configured": "This Viessmann heating device is already configured.",
+      "authentication_error": "Viessmann rejected the authentication. Start setup again.",
+      "cannot_connect": "Unable to connect to the Viessmann API.",
+      "invalid_api_data": "The Viessmann API returned invalid data.",
+      "no_gateways": "No Viessmann gateway was found.",
+      "no_heating_devices": "No heating device was found behind this gateway.",
+      "no_installations": "No Viessmann installation was found.",
+      "reconfigure_successful": "The target heating device was updated.",
+      "reauth_successful": "Reauthentication was successful.",
+      "schedule_not_supported": "The domestic hot water circulation schedule is not available or cannot be changed.",
+      "unknown": "An unexpected error occurred."
+    },
+    "create_entry": {
+      "default": "Successfully authenticated with Viessmann."
+    },
+    "step": {
+      "installation": {
+        "title": "Select installation",
+        "description": "Select the Viessmann installation containing the heat pump.",
+        "data": {
+          "installation_id": "Installation"
+        }
+      },
+      "gateway": {
+        "title": "Select gateway",
+        "description": "Select the Vitoconnect gateway connected to the heat pump.",
+        "data": {
+          "gateway_serial": "Gateway"
+        }
+      },
+      "device": {
+        "title": "Select heating device",
+        "description": "Select the heating device whose circulation schedule should be controlled.",
+        "data": {
+          "device_id": "Heating device"
+        }
+      },
+      "pick_implementation": {
+        "title": "Select credentials"
+      },
+      "reauth_confirm": {
+        "title": "Reauthenticate ViCare Circulation",
+        "description": "The Viessmann account must be authenticated again."
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "pump_active": {
+        "name": "DHW circulation active"
+      }
+    },
+    "select": {
+      "schedule": {
+        "name": "DHW circulation schedule"
+      }
+    },
+    "sensor": {
+      "schedule_status": {
+        "name": "DHW circulation schedule status"
+      },
+      "api_schedule": {
+        "name": "DHW circulation API schedule"
+      }
+    }
+  },
+  "exceptions": {
+    "schedule_write_failed": {
+      "message": "Unable to activate circulation schedule preset {preset}."
+    },
+    "unknown_preset": {
+      "message": "Unknown circulation schedule preset: {preset}."
+    }
+  }
+}
